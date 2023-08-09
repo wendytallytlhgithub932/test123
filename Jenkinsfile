@@ -1,4 +1,5 @@
 def gv
+//define variable
 
 pipeline {
 	agent any
@@ -14,7 +15,9 @@ pipeline {
 	stages { 
 		stage("init") {
 			steps {
-				gv = load "script.groovy"
+                script {
+				    gv = load "script.groovy"
+                }
 			}
 		}
 		
@@ -27,7 +30,9 @@ pipeline {
 		stage("build") {
 				
 			steps {
-				echo "build the application .."
+				script{
+                   gv.buildApp()
+                }
 				echo "My variable value: ${env.MY_VARIABLE}"
 			}
 		}
@@ -40,14 +45,18 @@ pipeline {
 			}
 				
 			steps {
-				echo "test the application .."
-			}
+				script{
+                   gv.testApp()
+                }			
+            }
 		}
 
 		stage("desploy") {
 				
 			steps {
-				echo "test the application .."
+				script{
+                   gv.deployApp()
+                }                
 			}
 		}	
 	}
