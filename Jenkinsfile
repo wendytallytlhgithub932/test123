@@ -7,7 +7,7 @@ pipeline {
 	agent {
 			node {
 
-				label 'Jenkins-agent-goes-here'
+				label 'Jenkins'
 			}
 	}
 	// triggers {
