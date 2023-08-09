@@ -33,7 +33,7 @@ pipeline {
 				script{
                    gv.buildApp()
                 }
-				echo "My variable value: ${env.MY_VARIABLE}"
+				//echo "My variable value: ${env.MY_VARIABLE}"
 			}
 		}
 
