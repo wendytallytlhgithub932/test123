@@ -9,7 +9,7 @@ def testApp() {
 }
 
 def deployApp() {
-{
+
 	echo 'testing the application ...'
 }
 
