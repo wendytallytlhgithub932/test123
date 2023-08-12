@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+  //  agent any
+agent {
+		node {
+
+			label 'Agent Test Agent 1'
+		}
+}	
     environment {
         NEW_VERSION = "1.3.0"
     }
