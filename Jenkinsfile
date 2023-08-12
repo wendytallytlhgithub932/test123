@@ -4,12 +4,13 @@ def gv
 //define variable
 
 pipeline {
-	agent {
-			node {
+	agent any
+//	agent {
+//			node {
 
-				label 'Jenkins'
-			}
-	}
+//				label 'Jenkins'
+//			}
+//	}
 	// triggers {
 	// 	pollSCM '*/5 23 * * *'
 	// }
