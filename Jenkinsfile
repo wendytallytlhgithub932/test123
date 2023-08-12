@@ -1,74 +1,24 @@
-//With additional features
-
-def gv
-//define variable
-
 pipeline {
 	agent any
-//	agent {
-//			node {
 
-//				label 'Jenkins'
-//			}
-//	}
-	// triggers {
-	// 	pollSCM '*/5 23 * * *'
-	// }
-	parameters {
-		string(name: 'VERSION', defaultValue: '', description: 'version to deploy on prod')
-		choice(name: 'VERSION', choices: ['1.1.0', '1.2.0', '1.3.0'], description: '')
-		booleanParam(name: 'executeTests', defaultValue: true, description:'')
-	}
-
-	environment {
-        MY_VARIABLE = 'test pipeline script syntax'
-    }
 	stages { 
-		stage("init") {
-			steps {
-                script {
-				    gv = load "script.groovy"
-                }
-			}
-		}
-		
-		stage("Env Variables"){
-            steps{
-                sh 'printenv'      
-				sh "printenv"     				
-            }
-        }
 		stage("build") {
-				
 			steps {
-				script{
-                   gv.buildApp()
-                }
-				//echo "My variable value: ${env.MY_VARIABLE}"
-			}
+          		echo "building the application"
+        		}
 		}
 
 		stage("test") {
-			when {
-				expression {
-					params.executeTests
-				}
-			}
-				
 			steps {
-				script{
-                   gv.testApp()
-                }			
-            }
+          		echo "Testing step the application"
+        		}
 		}
 
 		stage("desploy") {
 				
 			steps {
-				script{
-                   gv.deployApp()
-                }                
-			}
+          		echo "Testing step the application"
+        		}
 		}	
 	}
 }
