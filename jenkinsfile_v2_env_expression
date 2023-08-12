@@ -1,8 +1,8 @@
 pipeline {
-	agent any
-  environment {
-    NEW_VERSION = "1.3.0"
-}
+    agent any
+    environment {
+        NEW_VERSION = "1.3.0"
+    }
 	stages { 
 		stage("build") {		
           steps {
@@ -12,14 +12,14 @@ pipeline {
 		}
 
 		stage("test") {
-          when {
-            expression {
-              BRANCH_NAME == 'dev' 
-            }
-          }			
-          steps {
+            when {
+                expression {
+                BRANCH_NAME == 'dev' 
+                }
+            }			
+            steps {
           		echo "Testing step the application"
-        		}
+        	}
 		}
 
 		stage("desploy") {
