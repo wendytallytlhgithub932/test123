@@ -4,9 +4,19 @@ pipeline {
     docker { image 'node:16-alpine' }
   }
   stages {
+    stage('Pre-test') {
+      steps {
+         sh 'echo "----Pre--------"'
+         sh 'hostname'
+          sh 'echo "---Pre---------"'
+      }
+    }
     stage('Test') {
       steps {
-        sh 'node --version'
+         sh 'echo "----Test--------"'
+         sh 'hostname'
+          sh 'echo "---Test---------"'
+          sh 'node --version'
       }
     }
   }
