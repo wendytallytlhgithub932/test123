@@ -16,10 +16,11 @@ pipeline {
          sh 'echo "----Test--------"'
          sh 'hostname'
           sh 'echo "---Test---------"'
-          sh 'git --version'
-          sh 'curl --version'
-          sh 'ping -c 4 jenkins'
-          sh 'which nano'
+          sh 'node --version'
+         // sh 'curl --version'
+        //  sh 'which nano'
+        //  sh 'ping -c 4 jenkins'
+          
       }
     }
   }
