@@ -3,6 +3,12 @@ pipeline {
     docker { image 'node:16-alpine' }
    }
     stages {
+        stage('Diagnostic') {
+            steps {
+                sh 'echo "PATH: $PATH"'
+                sh 'env'
+            }
+        }
         stage('Checkout') {
             steps {
                echo "${GIT_USER_NAME}"
