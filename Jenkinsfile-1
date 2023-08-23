@@ -7,6 +7,7 @@ pipeline {
             steps {
                 sh 'echo "PATH: $PATH"'
                 sh 'env'
+                 sh 'hostname'
             }
         }
         stage('Checkout') {
@@ -19,6 +20,7 @@ pipeline {
                sh '/usr/bin/git --version'
                sh 'git config user.name ${GIT_USER_NAME}'
                 sh 'git config user.email ${GIT_USER_EMAIL}'
+                 sh 'hostname'
                 sh 'git clone https://github.com/wendytallytlhgithub932/test123.git'
             }
         }
