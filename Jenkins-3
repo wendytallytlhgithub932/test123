@@ -1,0 +1,15 @@
+//copied from https://github.com/darinpope/jenkins-example-docker/blob/main/Jenkinsfile-3
+pipeline {
+  agent { dockerfile true }
+  stages {
+    stage('Test') {
+      steps {
+        sh '''
+          node --version
+          git --version
+          curl --version
+        '''
+      }
+    }
+  }
+}
