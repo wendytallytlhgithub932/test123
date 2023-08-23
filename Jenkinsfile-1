@@ -5,9 +5,13 @@ pipeline {
     stages {
         stage('Diagnostic') {
             steps {
-                sh 'echo "PATH: $PATH"'
-                sh 'env'
-                 sh 'hostname'
+                //sh 'echo "PATH: $PATH"'
+                //sh 'env'
+                  sh 'echo "in Diagnostic"'
+                  sh 'hostname'
+                  sh 'git --version'
+                  sh 'echo "in Diagnostic --end"'
+
             }
         }
         stage('Checkout') {
@@ -20,9 +24,11 @@ pipeline {
    //            sh '/usr/bin/git --version'
    //            sh 'git config user.name ${GIT_USER_NAME}'
    //             sh 'git config user.email ${GIT_USER_EMAIL}'
+                  sh 'echo "in checkout"'
                  sh 'hostname'
                sh 'git --version'
                 sh 'git clone https://github.com/wendytallytlhgithub932/test123.git'
+                 sh 'echo "in checkout--end"'
             }
         }
         // Add other stages here
