@@ -12,15 +12,16 @@ pipeline {
         }
         stage('Checkout') {
             steps {
-               echo "${GIT_USER_NAME}"
-               echo  "${GIT_USER_EMAIL}"
-               echo "$PATH"
-               sh 'ls -lrt /usr/bin'
-               sh 'whoami'
-               sh '/usr/bin/git --version'
-               sh 'git config user.name ${GIT_USER_NAME}'
-                sh 'git config user.email ${GIT_USER_EMAIL}'
+ //              echo "${GIT_USER_NAME}"
+  //             echo  "${GIT_USER_EMAIL}"
+   //            echo "$PATH"
+   //            sh 'ls -lrt /usr/bin'
+   //            sh 'whoami'
+   //            sh '/usr/bin/git --version'
+   //            sh 'git config user.name ${GIT_USER_NAME}'
+   //             sh 'git config user.email ${GIT_USER_EMAIL}'
                  sh 'hostname'
+               sh 'git --version'
                 sh 'git clone https://github.com/wendytallytlhgithub932/test123.git'
             }
         }
