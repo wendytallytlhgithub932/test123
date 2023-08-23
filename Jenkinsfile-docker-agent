@@ -1,0 +1,23 @@
+//copied from https://github.com/darinpope/jenkins-example-docker/blob/main/Jenkinsfile-1
+pipeline {
+  agent {
+    docker { image 'linuxdockeragent_v3-agent:latest' }
+  }
+  stages {
+    stage('Pre-test') {
+      steps {
+         sh 'echo "----Pre--------"'
+         sh 'hostname'
+          sh 'echo "---Pre---------"'
+      }
+    }
+    stage('Test') {
+      steps {
+         sh 'echo "----Test--------"'
+         sh 'hostname'
+          sh 'echo "---Test---------"'
+          sh 'node --version'
+      }
+    }
+  }
+}
