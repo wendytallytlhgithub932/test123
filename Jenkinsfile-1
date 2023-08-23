@@ -9,7 +9,7 @@ pipeline {
                echo  "${GIT_USER_EMAIL}"
  //               sh 'git config user.name ${GIT_USER_NAME}'
    //             sh 'git config user.email ${GIT_USER_EMAIL}'
-                sh 'git clone https://github.com/darinpope/jenkins-example-docker.git'
+                sh 'git clone https://github.com/wendytallytlhgithub932/test123.git'
             }
         }
         // Add other stages here
