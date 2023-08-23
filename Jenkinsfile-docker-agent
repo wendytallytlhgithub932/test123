@@ -16,7 +16,10 @@ pipeline {
          sh 'echo "----Test--------"'
          sh 'hostname'
           sh 'echo "---Test---------"'
-          sh 'node --version'
+          sh 'git --version'
+          sh 'curl --version'
+          sh 'ping -c 4 jenkins'
+          sh 'which nano'
       }
     }
   }
