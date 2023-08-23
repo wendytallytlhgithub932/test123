@@ -1,9 +1,6 @@
 pipeline {
     agent any
-    environment {
-        GIT_USER_NAME = credentials('GIT_USER_NAME')
-        GIT_USER_EMAIL = credentials('GIT_USER_EMAIL')
-    }
+
     stages {
         stage('Checkout') {
             steps {
