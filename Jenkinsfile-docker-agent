@@ -17,7 +17,7 @@ pipeline {
          sh 'hostname'
           sh 'echo "---Test---------"'
           sh 'java --version'
-          //sh 'node --version'
+          sh 'node --version'
          // sh 'curl --version'
         //  sh 'which nano'
         //  sh 'ping -c 4 jenkins'
