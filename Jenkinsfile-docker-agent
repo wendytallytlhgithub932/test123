@@ -16,6 +16,7 @@ pipeline {
          sh 'echo "----Test--------"'
          sh 'hostname'
           sh 'echo "---Test---------"'
+          sh 'java --version'
           //sh 'node --version'
          // sh 'curl --version'
         //  sh 'which nano'
