@@ -1,3 +1,6 @@
+
+def app_dir = spring-boot-hello-world
+
 pipeline {
     agent {
         docker {
@@ -36,6 +39,34 @@ pipeline {
             }
         }
 
-        // Add more stages as needed (e.g., testing, deployment)
+       stage('Push JAR to Git Repository') {
+            steps {
+                // Replace with your Git repository URL and branch
+                def gitRepoUrl = 'https://github.com/wendytallytlhgithub932/TestSpringBoot.git'
+                def gitBranch = 'main'
+                def gitFilePath = '/'
+
+                // Define the JAR file name (adjust as needed)
+                def jarFileName = 'target/*.jar'
+				dir("$app_dir")
+				{
+
+                // Commit and push the JAR file to the Git repository
+					sh """
+						git config --global user.email "test@xyz.com"
+						git config --global user.name "Wendy"
+						git clone $gitRepoUrl
+						cd $app_dir
+						git checkout $gitBranch
+						cp $destinationPath/$jarFileName $gitFilePath
+						git add $gitFilePath/$jarFileName
+						git commit -m "Add $jarFileName"
+						git push origin $gitBranch
+					"""
+				}
+            }
+        }        // Add more stages as needed (e.g., testing, deployment)
     }
 }
+
+
