@@ -1,4 +1,3 @@
-
 def app_dir = 'spring-boot-hello-world'
 def gitRepoUrl = 'https://github.com/wendytallytlhgithub932/TestSpringBoot.git'
 def gitBranch = 'main'
@@ -50,40 +49,21 @@ pipeline {
             steps {
                 sh 'echo $app_dir'
                 // Replace with your Git repository URL and branch
-				dir("$app_dir") {
 				    sh """
 				        pwd
 				        
 				    """
-				}
             }
       }
       
-       stage('Push JAR to Git Repository') {
-            steps {
-                // Replace with your Git repository URL and branch
-				dir("$app_dir")
-				{
-                    sh 'echo "in push step start"---------'
-                    sh 'pwd'
-                    sh 'echo "++++++++++++"'
-                // Commit and push the JAR file to the Git repository
-					sh """
-						git config --global user.email "test@xyz.com"
-						git config --global user.name "Wendy"
-						git clone $gitRepoUrl
-						cd $app_dir
-						git checkout $gitBranch
-						cp $destinationPath/$jarFileName $gitFilePath
-						git add $gitFilePath/$jarFileName
-						git commit -m "Add $jarFileName"
-						git push origin $gitBranch
-					"""
-					 sh 'echo "in push step end"---------'
-				}
-            }
-        }        // Add more stages as needed (e.g., testing, deployment)
-    }
+     stage('Push')
+	 {
+		steps 
+		{
+			sh 'echo "in push"'
+		}
+	 }
+      
+	  
+   }
 }
-
-
