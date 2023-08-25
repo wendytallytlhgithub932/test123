@@ -22,11 +22,12 @@ pipeline {
                 doGenerateSubmoduleConfigurations: false, 
                 extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CloneOption', 
                 noTags: false, reference: '', shallow: true, timeout: 10]], 
-                submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'your-credentials-id', 
+                submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'wendytallytlhgithub932', 
                 url: 'https://github.com/wendytallytlhgithub932/TestSpringBoot.git']]])
-                
+                sh 'echo "******after checkout code******"'
                 sh 'pwd'
                 sh 'ls -lrt'
+
             }
         }
 
