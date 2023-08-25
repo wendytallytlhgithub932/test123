@@ -1,5 +1,11 @@
 
 def app_dir = 'spring-boot-hello-world'
+def gitRepoUrl = 'https://github.com/wendytallytlhgithub932/TestSpringBoot.git'
+def gitBranch = 'main'
+def gitFilePath = '/'
+
+// Define the JAR file name (adjust as needed)
+def jarFileName = 'target/*.jar'
 
 pipeline {
     agent {
@@ -28,7 +34,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '\'pwd\''
-                dir('spring-boot-hello-world') {
+//                dir('spring-boot-hello-world') {
+                dir("$app_dir") {
                     // Perform actions in the specified directory
                     sh 'ls -l' // Example: List files in the specified directory
                    // sh 'mvn clean install -Dmaven.test.skip=true'
@@ -39,18 +46,27 @@ pipeline {
             }
         }
 
+      stage('Test') {
+            steps {
+                sh 'echo $app_dir'
+                // Replace with your Git repository URL and branch
+				dir("$app_dir") {
+				    sh """
+				        pwd
+				        
+				    """
+				}
+            }
+      }
+      
        stage('Push JAR to Git Repository') {
             steps {
                 // Replace with your Git repository URL and branch
-                def gitRepoUrl = 'https://github.com/wendytallytlhgithub932/TestSpringBoot.git'
-                def gitBranch = 'main'
-                def gitFilePath = '/'
-
-                // Define the JAR file name (adjust as needed)
-                def jarFileName = 'target/*.jar'
 				dir("$app_dir")
 				{
-
+                    sh 'echo "in push step start"---------'
+                    sh 'pwd'
+                    sh 'echo "++++++++++++"'
                 // Commit and push the JAR file to the Git repository
 					sh """
 						git config --global user.email "test@xyz.com"
@@ -63,6 +79,7 @@ pipeline {
 						git commit -m "Add $jarFileName"
 						git push origin $gitBranch
 					"""
+					 sh 'echo "in push step end"---------'
 				}
             }
         }        // Add more stages as needed (e.g., testing, deployment)
