@@ -4,7 +4,7 @@ def gitBranch = 'main'
 def gitFilePath = '/'
 
 // Define the JAR file name (adjust as needed)
-def jarFileName = 'target/*.jar'
+//def jarFileName = 'target/*.jar'
 
 pipeline {
     agent {
@@ -61,9 +61,29 @@ pipeline {
 		steps 
 		{
 			sh 'echo "in push"'
+			sh 'pwd'
+			sh 'ls -lrt'
+			
+			sh """
+					rm -rf store
+                    git clone https://github.com/wendytallytlhgithub932/store.git
+					cd store
+                    git config --global user.email "wendy.tally.tlh@gmail.com"
+                    git config --global user.name "wendytallytlhgithub932"
+					git remote -v
+                    git checkout main
+                    cp ../$app_dir/target/*.jar .
+                    git add *.jar
+					git status
+					git branch
+                    git commit -m "Add jar files"
+					git remote -v
+                    git push origin main
+			//this statement does not work yet
+                """
 		}
 	 }
       
 	  
-   }
+	}
 }
