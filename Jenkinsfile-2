@@ -87,7 +87,7 @@ pipeline {
 					git branch
                     git commit -m "Add jar files"
 					git remote -v
-                    git push origin main
+                    git push -u origin main
 			//this statement does not work yet
                 """
 		}
