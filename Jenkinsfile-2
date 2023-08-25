@@ -19,6 +19,7 @@ pipeline {
         stage('Checkout') {
             steps {
 		sh 'echo "******before checkout code******"'
+		sh 'hostname'
                 sh 'pwd'
                 sh 'ls -lrt'
 		sh 'echo "clean" before download code'
