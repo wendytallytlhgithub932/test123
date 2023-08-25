@@ -20,6 +20,9 @@ pipeline {
 		sh 'echo "******before checkout code******"'
                 sh 'pwd'
                 sh 'ls -lrt'
+		sh 'echo "clean" before download code'
+		sh 'rm -rf TestSpringBoot*
+		sh 'ls -lrt'
                 // Checkout the code from the Git repository
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
                 doGenerateSubmoduleConfigurations: false, 
