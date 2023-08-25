@@ -1,5 +1,5 @@
 
-def app_dir = spring-boot-hello-world
+def app_dir = 'spring-boot-hello-world'
 
 pipeline {
     agent {
