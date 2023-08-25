@@ -19,7 +19,7 @@ pipeline {
           sh 'whoami'
           sh 'echo $PATH'
           sh 'echo "---Test---------"'
-          sh 'java --version'
+          //sh 'java --version'
           sh 'node --version'
          // sh 'curl --version'
         //  sh 'which nano'
