@@ -29,7 +29,11 @@ pipeline {
                     // Perform actions in the specified directory
                     sh 'ls -l' // Example: List files in the specified directory
                     sh 'mvn clean install -Dmaven.test.skip=true'
+                    sh "docker cp CONTAINER_ID_OR_NAME:./target/*.jar c:/temp"
                 }
+ 
+            }
+        }
 
         // Add more stages as needed (e.g., testing, deployment)
     }
