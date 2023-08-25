@@ -1,7 +1,8 @@
 //copied from https://github.com/darinpope/jenkins-example-docker/blob/main/Jenkinsfile-1
 pipeline {
   agent {
-    docker { image 'linuxdockeragent_v3-agent:latest' }
+    //docker { image 'linuxdockeragent_v3-agent:latest' }
+    docker { image 'my-java-image:latest' }
   }
   stages {
     stage('Pre-test') {
