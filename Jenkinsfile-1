@@ -1,0 +1,36 @@
+pipeline {
+    agent {
+        docker {
+            image 'my-java-image:latest'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the Git repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
+                doGenerateSubmoduleConfigurations: false, 
+                extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CloneOption', 
+                noTags: false, reference: '', shallow: true, timeout: 10]], 
+                submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'your-credentials-id', 
+                url: 'https://github.com/wendytallytlhgithub932/TestSpringBoot.git']]])
+                
+                sh 'pwd'
+                sh 'ls -lrt'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh '\'pwd\''
+                dir('spring-boot-hello-world') {
+                    // Perform actions in the specified directory
+                    sh 'ls -l' // Example: List files in the specified directory
+                    sh 'mvn clean install -Dmaven.test.skip=true'
+                }
+
+        // Add more stages as needed (e.g., testing, deployment)
+    }
+}
